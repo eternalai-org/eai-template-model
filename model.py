@@ -16,7 +16,7 @@ class ImageGenerator:
         ckpt_type = self.config["checkpoint_type"]
         if ckpt_type == "safetensors":
             pipeline = diffusers.StableDiffusionXLPipeline.from_single_file(
-                self.config["stable_diffusion_ckpt"]).to(self.device)
+                self.config["model_ckpt"]).to(self.device)
         elif ckpt_type == "lora":
             base_model_ckpt = self.config["base_model_ckpt"]
             base_model = os.path.basename(base_model_ckpt).split("_")[0]
@@ -26,10 +26,10 @@ class ImageGenerator:
             else:
                 pipeline = diffusers.StableDiffusionPipeline.from_pretrained(
                     base_model_ckpt).to(self.device)
-            pipeline.load_lora_weights(self.config["stable_diffusion_ckpt"])
+            pipeline.load_lora_weights(self.config["model_ckpt"])
         elif ckpt_type == "diffusers":
             pipeline = diffusers.StableDiffusionPipeline.from_pretrained(
-                self.config["stable_diffusion_ckpt"]).to(self.device)
+                self.config["model_ckpt"]).to(self.device)
         else:
             raise ValueError(f"Unknown checkpoint type: {ckpt_type}")
         return pipeline
@@ -50,7 +50,7 @@ class ImageGenerator:
             width=self.config["width"],
             guidance_scale=self.config["cfg"],
             num_images_per_prompt=1,
-            num_inference_steps=self.config["diffusion_steps"],
+            num_inference_steps=self.config["steps"],
         ).images
         checked_image = pil_images[0]
         torch.cuda.empty_cache()
