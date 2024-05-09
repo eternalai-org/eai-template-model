@@ -8,7 +8,7 @@ This is a simple template for launching your Image Generative AI Model.
 
 - Stable Diffusion model.
 
-- Supported checkpoint types: `single` checkpoint (`.safetensors` or `.pt`), and `lora`.
+- Supported checkpoint types: `single` file checkpoint (`.safetensors` or `.ckpt`), and `lora`.
 
 Note: Currently, we only support the above-mentioned checkpoint types. However, we are continuously working to expand our support.
 
