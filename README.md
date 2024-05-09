@@ -6,7 +6,7 @@ This is a simple template for launching your Image Generative AI Model.
 
 ### Requirements for your checkpoint
 
-- Stable Diffusion model
+- Stable Diffusion model.
 
 - Supported checkpoint types: `single` checkpoint (`.safetensors` or `.pt`), and `lora`.
 
@@ -18,7 +18,7 @@ Questions? Join our community at [https://eternalai.org/](https://eternalai.org/
 - Placing your model checkpoint in the [checkpoint](./checkpoints/). 
 
 - To configure your model checkpoint, modify the [config.json](./config.json) file as follows:
-    # For single checkpoint.
+    # For single type:
     ```json
     {
         "checkpoint_type": "safetensors",
@@ -31,7 +31,7 @@ Questions? Join our community at [https://eternalai.org/](https://eternalai.org/
         "height": 1024
     }
     ```
-    # For lora checkpoints.
+    # For lora:
     ```json
     {
         "checkpoint_type": "safetensors",
