@@ -13,7 +13,7 @@ This is a simple template for launching your Image Generative AI Model.
 Note: Currently, we only support the above-mentioned checkpoint types. However, we are continuously working to expand our support.
 
 ### Launch your model
-- Placing your model checkpoint in the [checkpoint](./checkpoints/). 
+- Placing your model checkpoint in the [checkpoints](./checkpoints/). 
 
 - To configure your model checkpoint, modify the [config.json](./config.json) file as follows:
     # For single type:
