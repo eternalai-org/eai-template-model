@@ -12,8 +12,6 @@ This is a simple template for launching your Image Generative AI Model.
 
 Note: Currently, we only support the above-mentioned checkpoint types. However, we are continuously working to expand our support.
 
-Questions? Join our community at [https://eternalai.org/](https://eternalai.org/)
-
 ### Launch your model
 - Placing your model checkpoint in the [checkpoint](./checkpoints/). 
 
@@ -57,3 +55,7 @@ Questions? Join our community at [https://eternalai.org/](https://eternalai.org/
     - `steps`: This represents the default `num_inference_steps`, i.e., the number of denoising steps. More steps can lead to higher image quality but may slow down inference.
     - `width`: Define the default width (in pixels) of the generated image.
     - `height`: Define the default height (in pixels) of the generated image.
+
+# Need help?
+
+Join our community at [https://eternalai.org/](https://eternalai.org/)
