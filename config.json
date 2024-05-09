@@ -1,7 +1,8 @@
 {
     "checkpoint_type": "safetensors",
-    "model_ckpt": "checkpoints/maxmulti.safetensors",
+    "model_ckpt": "checkpoints/model.safetensors",
     "base_model_ckpt": null,
+    "sd_type": null,
     "steps": 30,
     "cfg": 2.0,
     "width": 1024,

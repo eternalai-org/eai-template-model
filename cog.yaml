@@ -17,6 +17,7 @@ build:
   python_packages:
     - "diffusers"
     - "peft"
+    - "loguru"
 
   # commands run after the environment is setup
   # run:

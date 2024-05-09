@@ -17,8 +17,8 @@ class ImageGenerator:
             pipeline = diffusers.StableDiffusionXLPipeline.from_single_file(self.config["model_ckpt"]).to(self.device)
         elif ckpt_type == "lora":
             base_model_ckpt = self.config["base_model_ckpt"]
-            base_model = os.path.basename(base_model_ckpt).split("_")[0]
-            if base_model == "sdxl":
+            sd_model_type = self.config["sd_type"]
+            if sd_model_type == "XL":
                 pipeline = diffusers.StableDiffusionXLPipeline.from_single_file(base_model_ckpt).to(self.device)
             else:
                 pipeline = diffusers.StableDiffusionPipeline.from_pretrained(base_model_ckpt).to(self.device)
