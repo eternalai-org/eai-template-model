@@ -34,12 +34,13 @@ class ImageGenerator:
 
         return pipeline
 
-    def __call__(self, prompt, seed = None, h=None, w=None, steps=None, cfg=None):
+    def __call__(self, prompt, seed = None, h=None, w=None, steps=None, cfg=None, clip_skip = None):
         h = h or self.config["height"]
         w = w or self.config["width"]
         steps = steps or self.config["steps"]
         cfg = cfg or self.config["cfg"]
         seed = seed or self.config["seed"]
+        clip_skip = clip_skip or self.config["clip_skip"]
 
         self.generator.manual_seed(seed)
         pil_images = self.pipeline(
@@ -50,6 +51,7 @@ class ImageGenerator:
             guidance_scale=cfg,
             num_images_per_prompt=1,
             num_inference_steps=steps,
+            clip_skip = clip_skip,
         ).images
         checked_image = pil_images[0]
         torch.cuda.empty_cache()
