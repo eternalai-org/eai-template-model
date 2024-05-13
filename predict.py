@@ -30,7 +30,7 @@ class Predictor(BasePredictor):
             description="Prompt to generate an image from"),
         seed: int = Input(
             description="Seed for random number generator",
-            default=0),
+            default=None),
         h: int = Input(
             description="Height of the image",
             default=None),
