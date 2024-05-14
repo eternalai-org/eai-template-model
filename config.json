@@ -4,7 +4,7 @@
     "base_model_ckpt": null,
     "sd_type": null,
     "vae": null,
-    "torch_dtype": "float16",
+    "torch_dtype": "float32",
     "seed": 42,
     "steps": 30,
     "cfg": 2.0,
