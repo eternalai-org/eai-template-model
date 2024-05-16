@@ -22,16 +22,16 @@ class ImageGenerator:
             model_constructor = diffusers.StableDiffusionPipeline
 
         if ckpt_type == "safetensors":
-            pipeline = model_constructor.from_single_file(self.config["model_ckpt"], torch_dtype = dtype).to(self.device)
+            pipeline = model_constructor.from_single_file(self.config["model_ckpt"], torch_dtype = torch.float16).to(self.device)
         elif ckpt_type == "lora":
             base_model_ckpt = self.config["base_model_ckpt"]
-            pipeline = model_constructor.from_single_file(base_model_ckpt, torch_dtype = dtype).to(self.device)
+            pipeline = model_constructor.from_single_file(base_model_ckpt, torch_dtype = torch.float16).to(self.device)
             pipeline.load_lora_weights(self.config["model_ckpt"])
         elif ckpt_type == "diffusers":
-            pipeline = model_constructor.from_pretrained(self.config["model_ckpt"], torch_dtype = dtype).to(self.device)
+            pipeline = model_constructor.from_pretrained(self.config["model_ckpt"], torch_dtype = torch.float16).to(self.device)
         else:
             raise ValueError(f"Unknown checkpoint type: {ckpt_type}")
-
+        pipeline.to(dtype)
         return pipeline
 
     def __call__(self, prompt, seed = None, h=None, w=None, steps=None, cfg=None, clip_skip = None):
