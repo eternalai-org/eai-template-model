@@ -3,7 +3,6 @@
     "model_ckpt": "checkpoints/model.safetensors",
     "base_model_ckpt": null,
     "sd_type": "XL",
-    "vae": null,
     "torch_dtype": "float32",
     "seed": 42,
     "steps": 30,

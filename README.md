@@ -22,24 +22,30 @@ Note: Currently, we only support the above-mentioned checkpoint types. However, 
         "checkpoint_type": "safetensors",
         "model_ckpt": "checkpoints/model.safetensors",
         "base_model_ckpt": null,
-        "sd_type": null,
+        "sd_type": "XL",
+        "torch_dtype": "float32",
+        "seed": 42,
         "steps": 30,
         "cfg": 2.0,
         "width": 1024,
-        "height": 1024
+        "height": 1024,
+        "clip_skip": null
     }
     ```
     ## For lora:
     ```json
     {
-        "checkpoint_type": "safetensors",
+        "checkpoint_type": "lora",
         "model_ckpt": "checkpoints/model.safetensors",
         "base_model_ckpt": "checkpoints/base_model.safetensors",
         "sd_type": "XL",
-        "steps": 20,
-        "cfg": 7.0,
+        "torch_dtype": "float32",
+        "seed": 42,
+        "steps": 30,
+        "cfg": 2.0,
         "width": 1024,
-        "height": 1024
+        "height": 1024,
+        "clip_skip": null
     }
     ```
 
