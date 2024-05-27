@@ -68,12 +68,12 @@ To ensure the validity of your model, you should use the [check_model.py](./chec
  2. **Load the Model**: The script will attempt to load the model into memory. If the model cannot be loaded, it will provide detailed error messages to help you diagnose and fix any issues.
  3. **Run Initial Tests**: Basic tests may be performed to ensure that the model behaves as expected with sample input data.
 
- Please run the following command to check your model:
- ```
-    conda env create -f environment.yml
-    conda activate check_valid
-    python check_model.py
- ```
+Please run the following command to check your model:
+```
+conda env create -f environment.yml
+conda activate check_valid
+python check_model.py
+```
 # Need help?
 
 Join our community at [https://eternalai.org/](https://eternalai.org/)
