@@ -64,7 +64,16 @@ Note: Currently, we only support the above-mentioned checkpoint types. However, 
 
 ### Importance
 To ensure the validity of your model, you should use the [check_model.py](./check_model.py) script. This script performs several critical checks to confirm that your model is properly configured and can be loaded without errors. Specifically, it will:
+ 1. **Verify Model Integrity**: The script will examine the model file to ensure that it is not corrupted and that all necessary components are present.
+ 2. **Load the Model**: The script will attempt to load the model into memory. If the model cannot be loaded, it will provide detailed error messages to help you diagnose and fix any issues.
+ 3. **Run Initial Tests**: Basic tests may be performed to ensure that the model behaves as expected with sample input data.
 
+ Please run the following command to check your model:
+ ```
+    conda env create -f environment.yml
+    conda activate check_valid
+    python check_model.py
+ ```
 # Need help?
 
 Join our community at [https://eternalai.org/](https://eternalai.org/)

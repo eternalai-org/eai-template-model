@@ -30,6 +30,7 @@ class ValidChecker:
         return self.check(prompt="A man", seed=10, steps=2)
 
 if __name__ == "__main__":
+    logger.info("-" * 50 + "START CHECK" + "-" * 50)
     with open("config.json", "r") as f:
         config = json.load(f)
     checker = ValidChecker(config)
@@ -37,3 +38,4 @@ if __name__ == "__main__":
         logger.info("Model is valid.")
     else:
         logger.info("Model is invalid.")
+    logger.info("-" * 50 + "END CHECK" + "-" * 50)
