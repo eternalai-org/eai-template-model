@@ -1,6 +1,6 @@
 {
     "checkpoint_type": "safetensors",
-    "model_ckpt": "/home/xxx/NewSDInference/checkpoints/model.safetensors",
+    "model_ckpt": "checkpoints/model.safetensors",
     "base_model_ckpt": null,
     "sd_type": "XL",
     "vae": null,
