@@ -62,6 +62,9 @@ Note: Currently, we only support the above-mentioned checkpoint types. However, 
     - `width`: Define the default width (in pixels) of the generated image.
     - `height`: Define the default height (in pixels) of the generated image.
 
+### Importance
+To ensure the validity of your model, you should use the [check_model.py](./check_model.py) script. This script performs several critical checks to confirm that your model is properly configured and can be loaded without errors. Specifically, it will:
+
 # Need help?
 
 Join our community at [https://eternalai.org/](https://eternalai.org/)

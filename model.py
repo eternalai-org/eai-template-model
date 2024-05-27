@@ -31,6 +31,10 @@ class ImageGenerator:
             pipeline = model_constructor.from_pretrained(self.config["model_ckpt"], torch_dtype = torch.float16).to(self.device)
         else:
             raise ValueError(f"Unknown checkpoint type: {ckpt_type}")
+        if self.config["vae"]:
+            from diffusers import AutoencoderKL
+            vae = AutoencoderKL.from_single_file(self.config["vae"], torch_dtype = torch.float16).to(self.device)
+            pipeline.vae = vae
         pipeline.to(dtype)
         return pipeline
 
