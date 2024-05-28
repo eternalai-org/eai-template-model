@@ -9,8 +9,9 @@ class ValidChecker:
         try:
             self.model = ImageGenerator(config)
             logger.info("ImageGenerator model loaded sucessfully.")
-        except Exception:
+        except Exception as e:
             self.model = None
+            logger.info(e)
             logger.info("ImageGenerator model failed to load.")
 
 
@@ -21,7 +22,8 @@ class ValidChecker:
         try:
             _ = self.model(prompt, seed, h, w, steps, cfg)
             logger.info("Prediction successful.")   
-        except Exception:
+        except Exception as e:
+            logger.info(e)
             logger.info("Prediction failed.")
             return False
         return True

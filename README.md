@@ -70,6 +70,8 @@ To ensure the validity of your model, you should use the [check_model.py](./chec
 
 Please run the following command to check your model:
 ```
+git clone https://github.com/eternalai-org/eai-template-model.git
+cd eai-template-model
 conda env create -f environment.yml
 conda activate check_valid
 python check_model.py
