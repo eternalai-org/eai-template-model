@@ -1,8 +1,22 @@
 import json
+import argparse
 from loguru import logger
 from model import ImageGenerator
 
-logger.add("log.txt", format="{time} {level} {message}", level="DEBUG")
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", type=str, default="config.json", help="Path to the config file")
+    parser.add_argument("--prompt", type=str, default = "A man", help="Prompt to generate an image from")
+    parser.add_argument("--seed", type=int, default= 10, help="Seed for random number generator")
+    parser.add_argument("--h", type=int, default=None, help="Height of the image")
+    parser.add_argument("--w", type=int, default=None, help="Width of the image")
+    parser.add_argument("--steps", type=int, default= 2, help="Number of inference steps")
+    parser.add_argument("--cfg", type=float, default=None, help="Guidance scale")
+    parser.add_argument("--output_path", type=str, default=None, help="Path to save the generated image or to check the image")
+    parser.add_argument("--log", type=str, default="log.txt", help="Path to the log file")
+    parser.add_argument("--check-result-path", type=str, default=None, help="Path to save the check result")
+    return parser.parse_args()
+
 
 class ValidChecker:
     def __init__(self, config):
@@ -28,16 +42,20 @@ class ValidChecker:
             return False
         return True
 
-    def is_valid(self):
-        return self.check(prompt="A man", seed=10, steps=2)
-
 if __name__ == "__main__":
+    args = parse_args()
+    result = {"is_valid": False}
+    logger.add(args.log, format="{time} {level} {message}", level="DEBUG")
     logger.info("-" * 50 + "START CHECK" + "-" * 50)
     with open("config.json", "r") as f:
         config = json.load(f)
     checker = ValidChecker(config)
-    if checker.is_valid():
+    if checker.check(args.prompt, args.seed, args.h, args.w, args.steps, args.cfg):
         logger.info("Model is valid.")
+        result["valid"] = True
     else:
         logger.info("Model is invalid.")
+    if args.check_result_path is not None:
+        with open(args.check_result_path, "w") as f:
+            json.dump(result, f)
     logger.info("-" * 50 + "END CHECK" + "-" * 50)
